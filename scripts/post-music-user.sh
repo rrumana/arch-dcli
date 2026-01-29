@@ -10,8 +10,6 @@ RuntimeDirectory=mpd
 EOF_OVERRIDE
 
   systemctl --user daemon-reload || true
-  systemctl --user enable --now mpd >/dev/null 2>&1 || true
-  systemctl --user enable --now mpd-mpris >/dev/null 2>&1 || true
 fi
 
 # mpdscribble (Last.fm scrobbler)

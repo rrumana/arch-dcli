@@ -80,6 +80,7 @@ This repository uses dcli modules to group packages, hooks, and dotfiles. The li
 - **Description:** Music apps and tools
 - **Packages:** spotify-launcher, mpd, mpc, rmpc, cava, playerctl, mpdscribble, spicetify-cli, mpd-mpris
 - **Hooks:** post-install `scripts/post-music-user.sh` (once, user)
+- **Services:** user `mpd`, `mpd-mpris`
 - **Dotfiles:** auto-sync `modules/Music/dotfiles/` to `~/.config/`
   - `mpd/` → `~/.config/mpd`
   - `mpdscribble/` → `~/.config/mpdscribble`
