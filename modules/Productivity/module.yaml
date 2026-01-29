@@ -1,0 +1,8 @@
+description: Productivity apps
+
+packages:
+  - vscodium
+  - firefox
+  - libreoffice
+
+dotfiles_sync: true

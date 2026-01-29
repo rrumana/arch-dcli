@@ -1,0 +1,44 @@
+/* Emoji Picker */
+
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 380px;
+}
+
+mainbox {
+  padding: 12px;
+  spacing: 10px;
+}
+
+inputbar {
+  margin: 0;
+  border-radius: 8px;
+}
+
+entry {
+  placeholder: "search";
+}
+
+listview {
+  columns: 5;
+  lines: 5;
+  spacing: 6px;
+  flow: horizontal;
+  fixed-columns: true;
+}
+
+element {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+element-icon {
+  enabled: false;
+}
+
+element-text {
+  font: "CaskaydiaCove Nerd Font Mono 15";
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+}

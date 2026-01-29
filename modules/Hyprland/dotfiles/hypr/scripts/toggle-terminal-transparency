@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Toggle Ghostty transparency between 1 and 0.8
+GHOSTTY="$HOME/.config/ghostty/config"
+
+if [ -f "$GHOSTTY" ]; then
+  if grep -q "background-opacity = 1" "$GHOSTTY"; then
+    sed -i "s/background-opacity = 1/background-opacity = 0.8/" "$GHOSTTY"
+  else
+    sed -i "s/background-opacity = 0.8/background-opacity = 1/" "$GHOSTTY"
+  fi
+  pkill -SIGUSR2 ghostty
+fi

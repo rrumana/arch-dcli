@@ -1,0 +1,5 @@
+description: Games and launchers
+
+packages:
+  - prismlauncher
+  - osu-lazer-bin

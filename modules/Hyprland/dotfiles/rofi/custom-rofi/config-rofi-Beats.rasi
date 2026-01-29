@@ -1,0 +1,37 @@
+/* Rofi Beats */
+
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 650px;
+}
+
+mainbox {
+  padding: 12px;
+  spacing: 10px;
+  children: [ "inputbar", "listview"];
+}
+
+inputbar {
+  margin: 0;
+  border-radius: 8px;
+}
+
+entry {
+  placeholder: "search";
+}
+
+listview {
+  columns: 2;
+  lines: 8;
+  spacing: 6px;
+}
+
+element {
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+element-icon {
+  size: 0;
+}

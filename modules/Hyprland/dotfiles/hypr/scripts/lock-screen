@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Sync hyprlock wallpaper from swww cache (fast inline version)
+CACHE="$HOME/.cache/swww"
+MON=$(ls "$CACHE" 2>/dev/null | grep -v '_' | head -1)
+[[ -f "$CACHE/$MON" ]] && ln -sf "$(tr '\0' '\n' < "$CACHE/$MON" | sed -n '3p')" "$HOME/.cache/hyprlock-wallpaper"
+
+# Kill screensaver, launch hyprlock
+pkill -f "ghostty.*Screensaver"
+pidof hyprlock || exec hyprlock

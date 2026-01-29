@@ -1,0 +1,29 @@
+/* Search */
+
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 500px;
+  location: north;
+  anchor: north;
+  y-offset: 60px;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+mainbox {
+  padding: 0;
+  children: [ "inputbar" ];
+}
+
+inputbar {
+  padding: 14px 18px;
+  margin: 0;
+  border-radius: 12px;
+  background-color: #00000099;
+}
+
+entry {
+  placeholder: "search the web";
+  horizontal-align: 0.5;
+}

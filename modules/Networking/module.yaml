@@ -1,0 +1,12 @@
+description: Networking tools and services
+
+packages:
+  - networkmanager
+  - nmgui-bin
+  - kdeconnect
+  - bluez
+  - bluez-utils
+  - blueman
+
+post_install_hook: scripts/post-networking-root.sh
+post_hook_behavior: once

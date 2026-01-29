@@ -1,0 +1,10 @@
+description: Kubernetes tooling and networking
+
+packages:
+  - kubeadm
+  - kubectl
+  - kubelet
+  - crictl
+  - iptables-nft
+  - libnftnl
+  - nftables

@@ -1,0 +1,12 @@
+description: Desktop kernel packages (CachyOS + LTS)
+
+pre_install_hook: scripts/add-cachyos-repos.sh
+pre_hook_behavior: once
+
+packages:
+  - amd-ucode
+  - linux-firmware
+  - linux-cachyos
+  - linux-cachyos-headers
+  - linux-lts
+  - linux-lts-headers

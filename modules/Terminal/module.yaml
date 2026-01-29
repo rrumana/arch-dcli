@@ -1,0 +1,20 @@
+description: Terminal tools and shell setup
+
+packages:
+  - ghostty
+  - tmux
+  - bash
+  - nvim
+  - starship
+  - lazygit
+  - chafa
+  - fastfetch
+
+dotfiles_sync: true
+dotfiles:
+  - source: .bashrc
+    target: ~/.bashrc
+  - source: .tmux.conf
+    target: ~/.tmux.conf
+  - source: starship.toml
+    target: ~/.config/starship.toml

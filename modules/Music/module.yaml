@@ -1,0 +1,18 @@
+description: Music apps and tools
+
+packages:
+  - spotify-launcher
+  - mpd
+  - mpc
+  - rmpc
+  - cava
+  - playerctl
+  - mpdscribble
+  - spicetify-cli
+  - mpd-mpris
+
+dotfiles_sync: true
+
+post_install_hook: scripts/post-music-user.sh
+post_hook_behavior: once
+run_hooks_as_user: true

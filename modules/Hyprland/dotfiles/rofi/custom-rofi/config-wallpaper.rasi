@@ -1,0 +1,73 @@
+/* Wallpaper Picker */
+
+@import "~/.config/rofi/config.rasi"
+
+configuration { show-icons: true; }
+
+window {
+  width: 85%;
+  height: 90%;
+  border: 0;
+  border-radius: 12px;
+  background-color: #00000099;
+}
+
+mainbox {
+  padding: 12px;
+  spacing: 10px;
+  children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+  padding: 6px 14px;
+  margin: 0 35%;
+  border: 0;
+  border-radius: 14px;
+  background-color: #ffffff0c;
+  children: [ "entry" ];
+}
+
+entry {
+  placeholder: "search";
+  placeholder-color: #ffffff40;
+  text-color: #ffffffd0;
+  horizontal-align: 0.5;
+  font: "CaskaydiaCove Nerd Font Mono 9";
+}
+
+listview {
+  columns: 8;
+  lines: 4;
+  spacing: 6px;
+  flow: horizontal;
+  fixed-height: true;
+}
+
+element {
+  orientation: vertical;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: #ffffff0a;
+  cursor: pointer;
+}
+
+element selected.normal {
+  background-color: #ffffff1a;
+}
+
+element-icon {
+  size: 120px;
+  border-radius: 5px;
+  background-color: #00000020;
+}
+
+element-text {
+  horizontal-align: 0.5;
+  padding: 5px 0 0 0;
+  text-color: #ffffffa0;
+  font: "CaskaydiaCove Nerd Font Mono Bold 9";
+}
+
+element selected.normal element-text {
+  text-color: #ffffffff;
+}
