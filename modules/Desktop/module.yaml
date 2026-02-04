@@ -1,4 +1,1 @@
 description: Desktop kernel packages (CachyOS + LTS)
-
-pre_install_hook: scripts/add-cachyos-repos.sh
-pre_hook_behavior: once
