@@ -1,36 +1,5 @@
 description: Common utilities
 
-packages:
-  - 7zip
-  - bat
-  - btop
-  - bzip2
-  - curl
-  - deno
-  - dkms
-  - downgrade
-  - eza
-  - fd
-  - fzf
-  - gzip
-  - jq
-  - keyd
-  - less
-  - localsend
-  - net-tools
-  - npm
-  - ffmpeg
-  - ripgrep
-  - restic
-  - rsync
-  - tar
-  - tcpdump
-  - tree-sitter-cli
-  - unzip
-  - wget
-  - which
-  - zip
-  - zoxide
 
 dotfiles_sync: true
 

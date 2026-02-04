@@ -1,14 +1,5 @@
 description: Terminal tools and shell setup
 
-packages:
-  - ghostty
-  - tmux
-  - bash
-  - nvim
-  - starship
-  - lazygit
-  - chafa
-  - fastfetch
 
 dotfiles_sync: true
 dotfiles:

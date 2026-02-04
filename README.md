@@ -12,14 +12,14 @@ This repository uses dcli modules to group packages, hooks, and dotfiles. The li
 ### Desktop
 - **Description:** Desktop kernel packages (CachyOS + LTS)
 - **Packages:** amd-ucode, linux-firmware, linux-cachyos, linux-cachyos-headers, linux-lts, linux-lts-headers
-- **Hooks:** pre-install `scripts/add-cachyos-repos.sh` (once)
+- **Hooks:** pre-install `modules/Desktop/scripts/add-cachyos-repos.sh` (once)
 - **Dotfiles:** none
 - **Enabled on:** Arch-Desktop
 
 ### Server
 - **Description:** Server kernel packages (CachyOS server + LTS)
 - **Packages:** amd-ucode, linux-firmware, linux-cachyos-server, linux-cachyos-server-headers, linux-lts, linux-lts-headers
-- **Hooks:** pre-install `scripts/add-cachyos-repos.sh` (once)
+- **Hooks:** pre-install `modules/Server/scripts/add-cachyos-repos.sh` (once)
 - **Dotfiles:** none
 - **Enabled on:** Arch-Kube-Server
 
@@ -33,7 +33,7 @@ This repository uses dcli modules to group packages, hooks, and dotfiles. The li
 ### Utilities
 - **Description:** Common utilities
 - **Packages:** 7zip, bat, btop, bzip2, curl, deno, dkms, downgrade, eza, fd, fzf, gzip, jq, keyd, less, localsend, net-tools, npm, ffmpeg, ripgrep, restic, rsync, tar, tcpdump, tree-sitter-cli, unzip, wget, which, zip, zoxide
-- **Hooks:** post-install `scripts/setup-restic.sh` (once, root)
+- **Hooks:** post-install `modules/Utilities/scripts/setup-restic.sh` (once, root)
 - **Dotfiles:** auto-sync `modules/Utilities/dotfiles/` to `~/.config/`
   - `btop/` → `~/.config/btop`
 - **Enabled on:** Arch-Desktop, Arch-Kube-Server
@@ -72,14 +72,14 @@ This repository uses dcli modules to group packages, hooks, and dotfiles. The li
 ### Networking
 - **Description:** Networking tools and services
 - **Packages:** networkmanager, nmgui-bin, kdeconnect, bluez, bluez-utils, blueman
-- **Hooks:** post-install `scripts/post-networking-root.sh` (once)
+- **Hooks:** post-install `modules/Networking/scripts/post-networking-root.sh` (once)
 - **Dotfiles:** none
 - **Enabled on:** Arch-Desktop, Arch-Kube-Server
 
 ### Music
 - **Description:** Music apps and tools
 - **Packages:** spotify-launcher, mpd, mpc, rmpc, cava, playerctl, mpdscribble, spicetify-cli, mpd-mpris
-- **Hooks:** post-install `scripts/post-music-user.sh` (once, user)
+- **Hooks:** post-install `modules/Music/scripts/post-music-user.sh` (once, user)
 - **Services:** user `mpd`, `mpd-mpris`
 - **Dotfiles:** auto-sync `modules/Music/dotfiles/` to `~/.config/`
   - `mpd/` → `~/.config/mpd`
@@ -90,7 +90,7 @@ This repository uses dcli modules to group packages, hooks, and dotfiles. The li
 ### Hyprland
 - **Description:** Hyprland compositor and Wayland tooling
 - **Packages:** hyprland, hypridle, hyprlock, hyprpicker, hyprsunset, xdg-desktop-portal-hyprland, xdg-desktop-portal-gtk, qt5-wayland, qt6-wayland, uwsm, waybar, rofi, swaync, swayosd, swww, wlogout, yazi, nautilus, grim, slurp, satty, wl-clipboard, gpu-screen-recorder, v4l-utils, cliphist, wl-clip-persist, polkit-gnome, brightnessctl, ddcutil, power-profiles-daemon, upower, libnotify, xdg-utils, xdg-user-dirs, inotify-tools, gnome-keyring, libsecret, xorg-xhost, libappindicator-gtk3, matugen, nwg-look, adw-gtk-theme, bibata-cursor-theme-bin, imagemagick, rofimoji, wtype, ttf-jetbrains-mono-nerd, ttf-cascadia-mono-nerd, noto-fonts-emoji, sddm, qt5-quickcontrols, qt5-quickcontrols2, qt5-graphicaleffects, python-terminaltexteffects, gum
-- **Hooks:** post-install `scripts/post-hyprland-user.sh` (once, user)
+- **Hooks:** post-install `modules/Hyprland/scripts/post-hyprland-user.sh` (once, user)
 - **Dotfiles:** auto-sync `modules/Hyprland/dotfiles/` to `~/.config/`
   - `cliphist/` → `~/.config/cliphist`
   - `gtk-3.0/` → `~/.config/gtk-3.0`

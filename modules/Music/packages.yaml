@@ -1,0 +1,10 @@
+packages:
+  - spotify-launcher
+  - mpd
+  - mpc
+  - rmpc
+  - cava
+  - playerctl
+  - mpdscribble
+  - spicetify-cli
+  - mpd-mpris

@@ -1,0 +1,7 @@
+packages:
+  - networkmanager
+  - nmgui-bin
+  - kdeconnect
+  - bluez
+  - bluez-utils
+  - blueman

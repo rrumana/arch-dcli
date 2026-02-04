@@ -1,15 +1,5 @@
 description: Music apps and tools
 
-packages:
-  - spotify-launcher
-  - mpd
-  - mpc
-  - rmpc
-  - cava
-  - playerctl
-  - mpdscribble
-  - spicetify-cli
-  - mpd-mpris
 
 dotfiles_sync: true
 

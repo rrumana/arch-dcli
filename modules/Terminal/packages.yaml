@@ -1,0 +1,9 @@
+packages:
+  - ghostty
+  - tmux
+  - bash
+  - nvim
+  - starship
+  - lazygit
+  - chafa
+  - fastfetch

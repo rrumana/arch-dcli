@@ -1,0 +1,7 @@
+packages:
+  - pipewire
+  - pipewire-alsa
+  - pipewire-pulse
+  - wireplumber
+  - pamixer
+  - wiremix

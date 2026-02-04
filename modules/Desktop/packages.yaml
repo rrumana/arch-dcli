@@ -1,0 +1,7 @@
+packages:
+  - amd-ucode
+  - linux-firmware
+  - linux-cachyos
+  - linux-cachyos-headers
+  - linux-lts
+  - linux-lts-headers

@@ -1,0 +1,8 @@
+packages:
+  - kubeadm
+  - kubectl
+  - kubelet
+  - crictl
+  - iptables-nft
+  - libnftnl
+  - nftables

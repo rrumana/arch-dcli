@@ -1,11 +1,4 @@
 description: Audio tools and drivers
 
-packages:
-  - pipewire
-  - pipewire-alsa
-  - pipewire-pulse
-  - wireplumber
-  - pamixer
-  - wiremix
 
 dotfiles_sync: true

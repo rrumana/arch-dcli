@@ -2,11 +2,3 @@ description: Server kernel packages (CachyOS server + LTS)
 
 pre_install_hook: scripts/add-cachyos-repos.sh
 pre_hook_behavior: once
-
-packages:
-  - amd-ucode
-  - linux-firmware
-  - linux-cachyos-server
-  - linux-cachyos-server-headers
-  - linux-lts
-  - linux-lts-headers

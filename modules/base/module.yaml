@@ -1,0 +1,4 @@
+# Base packages installed on all systems
+# These packages are included regardless of host or modules
+
+description: Base system packages
