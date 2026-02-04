@@ -4,6 +4,7 @@ packages:
   - base-devel
   - git
   - stow
+  - xdg-user-dirs
 
   # dcli dependencies
   - paru         # AUR helper (required for AUR package management)
