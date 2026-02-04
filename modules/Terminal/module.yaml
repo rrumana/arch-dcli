@@ -3,9 +3,9 @@ description: Terminal tools and shell setup
 
 dotfiles_sync: true
 dotfiles:
-  - source: .bashrc
+  - source: dotfiles/.bashrc
     target: ~/.bashrc
-  - source: .tmux.conf
+  - source: dotfiles/.tmux.conf
     target: ~/.tmux.conf
-  - source: starship.toml
+  - source: dotfiles/starship.toml
     target: ~/.config/starship.toml
