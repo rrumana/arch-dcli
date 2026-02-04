@@ -2,6 +2,3 @@ description: Common utilities
 
 
 dotfiles_sync: true
-
-post_install_hook: scripts/setup-restic.sh
-post_hook_behavior: once
