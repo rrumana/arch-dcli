@@ -4,9 +4,9 @@ description: Hyprland compositor and Wayland tooling
 dotfiles_sync: true
 
 dotfiles:
-  - source: symphony/install/themes/symphony
+  - source: dotfiles/symphony/install/themes/symphony
     target: ~/.local/bin/symphony
-  - source: symphony/install/themes/symphony-tui
+  - source: dotfiles/symphony/install/themes/symphony-tui
     target: ~/.local/bin/symphony-tui
 
 post_install_hook: scripts/post-hyprland-user.sh
