@@ -1,0 +1,94 @@
+# ~/.config/starship.toml
+
+add_newline = true
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$c\
+$cpp\
+$golang\
+$haskell\
+$java\
+$lua\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$python
+$character"""
+
+[username]
+show_always = true
+format = '$user'
+disabled = false
+
+[hostname]
+ssh_only = false
+format = "@$hostname"
+
+[directory]
+format = " @ $path"
+truncation_length = 1
+home_symbol = "~"
+truncate_to_repo = false
+
+[git_branch]
+format = " on [$symbol$branch]($style)"
+
+[c]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[cpp]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+disabled = false
+
+[docker_context]
+symbol = ""
+format = '[ $symbol $context ]($style)'
+
+[golang]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = "🦀"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = "🐍"
+format = '[ $symbol ($version) ]($style)'
+
+[character]
+success_symbol = "[➜](green)"
+error_symbol   = "[➜](red)"
+vicmd_symbol   = "[➜](green)"
+format = "[$symbol]($style) "
