@@ -4,6 +4,19 @@ set -euo pipefail
 # Ensure common directories exist
 mkdir -p "$HOME/Pictures/Screenshots" "$HOME/Wallpapers" "$HOME/.config/autostart" "$HOME/.local/share/applications" "$HOME/.local/share/applications/icons" "$HOME/.local/bin"
 
+# Ensure Symphony has a current theme symlink before Hyprland starts.
+symphony_dir="$HOME/.config/symphony"
+themes_dir="$symphony_dir/themes"
+current_link="$symphony_dir/current"
+if [[ -d "$themes_dir/dynamic" ]]; then
+  if [[ ! -e "$current_link" ]]; then
+    ln -sfn "$themes_dir/dynamic" "$current_link"
+  fi
+  if [[ ! -f "$symphony_dir/.current-theme" ]]; then
+    printf "%s\n" "dynamic" >"$symphony_dir/.current-theme"
+  fi
+fi
+
 # Disable tray applets (waybar handles these)
 for app in blueman nm-applet; do
   if [[ -f "/etc/xdg/autostart/${app}.desktop" ]]; then

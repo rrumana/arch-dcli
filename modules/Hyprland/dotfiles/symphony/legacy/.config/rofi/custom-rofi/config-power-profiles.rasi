@@ -1,0 +1,26 @@
+/* Power Profiles */
+
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 200px;
+}
+
+mainbox {
+  padding: 12px;
+  children: ["listview"];
+}
+
+listview {
+  lines: 3;
+  spacing: 6px;
+}
+
+element {
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+
+element-icon {
+  size: 0;
+}

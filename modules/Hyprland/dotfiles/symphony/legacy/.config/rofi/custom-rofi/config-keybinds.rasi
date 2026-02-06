@@ -1,0 +1,41 @@
+/* Keybinds Viewer */
+
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 700px;
+}
+
+mainbox {
+  padding: 12px;
+  spacing: 10px;
+  children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+  margin: 0;
+  border-radius: 8px;
+}
+
+entry {
+  placeholder: "search";
+}
+
+listview {
+  columns: 1;
+  lines: 12;
+  fixed-height: true;
+  spacing: 4px;
+}
+
+element {
+  padding: 6px 10px;
+}
+
+element-icon {
+  size: 0;
+}
+
+element-text {
+  font: "CaskaydiaCove Nerd Font Mono 11";
+}

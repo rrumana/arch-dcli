@@ -1,0 +1,88 @@
+/* Theme Picker - Responsive for all displays */
+@import "~/.config/rofi/config.rasi"
+
+configuration {
+    show-icons: true;
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+window {
+    width: 80%;
+    border: 0;
+    border-radius: 1.2em;
+    padding: 0;
+    background-color: #000000cc;
+    location: center;
+    anchor: center;
+}
+
+mainbox {
+    padding: 1em 1.5em;
+    spacing: 1em;
+    background-color: transparent;
+    children: [ /* "inputbar", */ "listview" ];
+}
+
+inputbar {
+    padding: 0.6em 1em;
+    margin: 0 30%;
+    border: 0;
+    border-radius: 0.6em;
+    background-color: #ffffff10;
+    children: [ "entry" ];
+}
+
+entry {
+    placeholder: "Search themes...";
+    placeholder-color: #ffffff50;
+    text-color: #ffffffdd;
+    horizontal-align: 0.5;
+    cursor: text;
+}
+
+listview {
+    columns: 5;
+    lines: 1;
+    spacing: 1em;
+    padding: 0;
+    flow: horizontal;
+    fixed-height: true;
+    fixed-columns: true;
+    background-color: transparent;
+    scrollbar: false;
+}
+
+element {
+    orientation: vertical;
+    padding: 0.5em;
+    spacing: 0.4em;
+    border-radius: 0.6em;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+element selected.normal {
+    background-color: #ffffff18;
+}
+
+element-icon {
+    size: 14em;
+    border-radius: 0.6em;
+    background-color: transparent;
+    cursor: inherit;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+    padding: 0.3em 0 0 0;
+    text-color: #ffffffa0;
+    background-color: transparent;
+    cursor: inherit;
+}
+
+element selected.normal element-text {
+    text-color: #ffffff;
+}

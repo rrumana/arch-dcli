@@ -1,0 +1,40 @@
+/* Clipboard */
+
+@import "~/.config/rofi/config.rasi"
+
+window {
+  width: 540px;
+}
+
+mainbox {
+  padding: 12px;
+  spacing: 10px;
+  children: [ "inputbar", "listview"];
+}
+
+inputbar {
+  padding: 12px 14px;
+  margin: 0;
+  border-radius: 8px;
+}
+
+entry {
+  placeholder: "search";
+}
+
+listview {
+  columns: 1;
+  lines: 6;
+  fixed-height: true;
+  spacing: 4px;
+}
+
+element {
+  orientation: horizontal;
+  spacing: 10px;
+  padding: 6px 10px;
+}
+
+element-icon {
+  size: 40px;
+}
