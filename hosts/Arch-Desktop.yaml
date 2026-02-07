@@ -11,6 +11,7 @@ description: Arch-Desktop
 
 # Enabled modules (ordered)
 enabled_modules:
+  - Nvidia
   - Desktop
   - Utilities
   - Terminal

@@ -41,7 +41,7 @@
   },
   "custom/logo": {
     "format": "󰎈",
-    "on-click": "ghostty -e symphony-tui",
+    "on-click": "ghostty -e ~/.config/symphony/install/themes/symphony-tui",
     "on-click-right": "~/.config/rofi/scripts/rofibeats",
     "tooltip": false
   },

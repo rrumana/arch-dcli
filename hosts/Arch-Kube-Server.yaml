@@ -6,6 +6,7 @@ description: Arch-Kube-Server
 
 # Enabled modules (ordered)
 enabled_modules:
+  - AMD
   - Server
   - Kubernetes
   - Utilities

@@ -22,6 +22,7 @@ source "$SCRIPT_DIR/wal.sh"
 source "$SCRIPT_DIR/yazi.sh"
 source "$SCRIPT_DIR/rmpc.sh"
 source "$SCRIPT_DIR/starship.sh"
+source "$SCRIPT_DIR/tmux.sh"
 source "$SCRIPT_DIR/vesktop.sh"
 source "$SCRIPT_DIR/obsidian.sh"
 source "$SCRIPT_DIR/spicetify.sh"
@@ -59,6 +60,7 @@ write_configs() {
     gen_yazi
     gen_rmpc
     gen_starship
+    gen_tmux
     gen_vesktop
     gen_obsidian
     gen_spicetify
@@ -98,7 +100,7 @@ run_import() {
     
     info "creating $name..."
     mkdir -p "$dest"/{backgrounds,.cache/wal}
-    mkdir -p "$dest/.config"/{btop/themes,cava,ghostty,gtk-3.0,gtk-4.0,hypr/theme,nvim,obsidian,rmpc/themes,rofi,spicetify/Themes/symphony,vesktop/themes,waybar,yazi}
+    mkdir -p "$dest/.config"/{btop/themes,cava,ghostty,gtk-3.0,gtk-4.0,hypr/theme,nvim,obsidian,rmpc/themes,rofi,spicetify/Themes/symphony,tmux,vesktop/themes,waybar,yazi}
     
     # copy wallpapers
     [[ -d "$tmp/repo/backgrounds" ]] && cp "$tmp/repo/backgrounds"/* "$dest/backgrounds/" 2>/dev/null || true

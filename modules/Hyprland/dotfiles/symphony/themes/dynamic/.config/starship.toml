@@ -1,74 +1,108 @@
-add_newline = false
-command_timeout = 60
-format = """\
-$os \
-$directory \
-$git_branch$git_status\
-$line_break\
-$character\
-"""
+# Symphony by vyrx
+# Theme: Dynamic
 
-# right_format = """\
-# $time\
-# """
+"$schema" = 'https://starship.rs/config-schema.json'
 
+add_newline = true
 palette = "colors"
 
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$c\
+$cpp\
+$golang\
+$haskell\
+$java\
+$lua\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$python
+$character"""
+
 [palettes.colors]
-mustard = '#af8700' # example
-color1 = '#f2be6e'
-color2 = '#442c00'
-color3 = '#d2c4b4'
-color4 = '#241f17'
-color5 = '#442c00'
-color6 = '#18130b'
-color7 = '#18130b'
-color8 = '#f2be6e'
-color9 = '#b6cea3'
+primary = '#81d5ce'
+secondary = '#b0c9e7'
+error = '#ffb4ab'
 
-[directory]
-style = "fg:#f2be6e bold" # color1
-read_only = " 󰌾"
-read_only_style = "fg:#ea6962" # dark blue
-truncation_length = 0
-truncate_to_repo = false
-format = "[$path]($style)[$read_only]($read_only_style)"
-
-[directory.substitutions]
-'~/100xCodes/Cohort-3-WebDev' = 'Learning'
-'~/Testing-repo' = 'work-project'
-
-[character]
-success_symbol = '[❯](fg:#f2be6e bold)'
-error_symbol = '[❯](fg:#ffb4ab bold)'
-vicmd_symbol = '[❮](fg:#18130b bold)'
-
-[git_branch]
-style = "fg:#b6cea3 bold" # color9 (red)
-format = '[$symbol$branch]($style) '
-
-[git_status]
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-format = '[[($all_status$ahead_behind )](fg:#ea6962)]($style)'
-# style = "bg:#394260"
-
-[os]
-format = "[$symbol]($style)"
-style = "fg:#f2be6e bold" # color8
+[username]
+show_always = true
+style_user = "fg:primary"
+style_root = "fg:error"
+format = '[$user]($style)'
 disabled = false
 
-[os.symbols]
-Linux = "󰊠 "
-Arch = "󰣇"
-Ubuntu = "󰕈"
+[hostname]
+ssh_only = false
+style = "fg:primary"
+format = "[@$hostname]($style)"
 
-# [time]
-# disabled = false
-# format = '[[ $time ](fg:#ea6962 )]($style)'
-# time_format = "%R"
+[directory]
+style = "fg:primary"
+format = " [@ $path]($style)"
+truncation_length = 1
+home_symbol = "~"
+truncate_to_repo = false
 
-[line_break]
-disabled = true
+[character]
+success_symbol = "[➜](green)"
+error_symbol = "[➜](red)"
+vicmd_symbol = "[➜](green)"
+format = "[$symbol]($style) "
 
+[git_branch]
+style = "fg:secondary"
+format = " on [$symbol$branch]($style)"
+
+[c]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[cpp]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+disabled = false
+
+[docker_context]
+symbol = ""
+format = '[ $symbol $context ]($style)'
+
+[golang]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = "🦀"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = "🐍"
+format = '[ $symbol ($version) ]($style)'

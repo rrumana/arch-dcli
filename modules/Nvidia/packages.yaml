@@ -1,0 +1,5 @@
+packages:
+  - linux-cachyos-nvidia-open
+  - linux-firmware-nvidia
+  - nvidia-utils
+

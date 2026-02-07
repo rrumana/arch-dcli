@@ -4,41 +4,92 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = true
-command_timeout = 200
-format = """$hostname$directory$git_branch$git_status$character"""
 palette = "colors"
 
+format = """
+$username$hostname$directory$git_branch$c$cpp$golang$haskell$java$lua$nodejs$nim$rust$scala$python
+$character"""
+
 [palettes.colors]
-primary = '#62e2a4'       # directory, prompt
-secondary = '#e0eb7a'     # git branch
-error = '#bf5a7c'         # errors, git status
+primary = '#62e2a4'
+secondary = '#e0eb7a'
+error = '#bf5a7c'
+
+
+[username]
+show_always = true
+style_user = "fg:primary"
+style_root = "fg:error"
+format = '[$user]($style)'
+disabled = false
 
 [hostname]
-ssh_only = true
+ssh_only = false
 style = "fg:primary"
-format = "[@$hostname]($style) "
+format = "[@$hostname]($style)"
 
 [directory]
-style = "fg:primary bold"
-read_only = " 󰌾"
-read_only_style = "fg:error"
-truncation_length = 3
-truncation_symbol = "…/"
-format = "[$path]($style)[$read_only]($read_only_style) "
-
-[character]
-success_symbol = '[❯](fg:primary bold)'
-error_symbol = '[❯](fg:error bold)'
+style = "fg:primary"
+format = " [@ $path]($style)"
+truncation_length = 1
+home_symbol = "~"
+truncate_to_repo = false
 
 [git_branch]
 style = "fg:secondary"
-format = '[$branch]($style) '
+format = " on [$symbol$branch]($style)"
 
-[git_status]
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕⇡${ahead_count}⇣${behind_count}'
-format = '[$all_status$ahead_behind](fg:error) '
+[c]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
 
-[line_break]
-disabled = true
+[cpp]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+disabled = false
+
+[docker_context]
+symbol = ""
+format = '[ $symbol $context ]($style)'
+
+[golang]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = "🦀"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+symbol = "🐍"
+format = '[ $symbol ($version) ]($style)'
+
+[character]
+success_symbol = "[➜](green)"
+error_symbol = "[➜](red)"
+vicmd_symbol = "[➜](green)"
+format = "[$symbol]($style) "

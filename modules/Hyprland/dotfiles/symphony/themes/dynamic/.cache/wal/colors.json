@@ -1,27 +1,27 @@
 {
-    "wallpaper": "/home/vyrx/Wallpapers/others/a_sculpture_of_a_man_with_a_face_on_his_head.png",
+    "wallpaper": "/home/rcrumana/Wallpapers/others/b-476.jpg",
     "alpha": "100",
     "special": {
-        "background": "#18130b",
-        "foreground": "#ede1d4",
-        "cursor": "#f2be6e"
+        "background": "#0e1514",
+        "foreground": "#dde4e2",
+        "cursor": "#81d5ce"
     },
     "colors": {
-        "color0": "#18130b",
+        "color0": "#0e1514",
         "color1": "#ffb4ab",
-        "color2": "#f2be6e",
-        "color3": "#b6cea3",
-        "color4": "#dcc3a1",
-        "color5": "#384c2b",
-        "color6": "#55442a",
-        "color7": "#ede1d4",
-        "color8": "#241f17",
+        "color2": "#81d5ce",
+        "color3": "#b0c9e7",
+        "color4": "#b0ccc9",
+        "color5": "#304962",
+        "color6": "#324b49",
+        "color7": "#dde4e2",
+        "color8": "#1a2120",
         "color9": "#ffb4ab",
-        "color10": "#f2be6e",
-        "color11": "#b6cea3",
-        "color12": "#dcc3a1",
-        "color13": "#384c2b",
-        "color14": "#55442a",
-        "color15": "#ede1d4"
+        "color10": "#81d5ce",
+        "color11": "#b0c9e7",
+        "color12": "#b0ccc9",
+        "color13": "#304962",
+        "color14": "#324b49",
+        "color15": "#dde4e2"
     }
 }

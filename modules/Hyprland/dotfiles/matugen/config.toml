@@ -72,4 +72,7 @@ output_path = '~/.config/symphony/themes/dynamic/.config/obsidian/theme.css'
 input_path = '~/.config/matugen/templates/spicetify-colors.ini'
 output_path = '~/.config/symphony/themes/dynamic/.config/spicetify/Themes/symphony/color.ini'
 
+[templates.tmux]
+input_path = '~/.config/matugen/templates/tmux-catppuccin.conf'
+output_path = '~/.config/symphony/themes/dynamic/.config/tmux/catppuccin_dynamic_tmux.conf'
 

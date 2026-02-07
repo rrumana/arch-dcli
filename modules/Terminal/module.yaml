@@ -5,7 +5,5 @@ dotfiles_sync: true
 dotfiles:
   - source: dotfiles/.bashrc
     target: ~/.bashrc
-  - source: dotfiles/.tmux.conf
-    target: ~/.tmux.conf
   - source: dotfiles/starship.toml
     target: ~/.config/starship.toml
