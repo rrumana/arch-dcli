@@ -14,7 +14,7 @@ for m in $(hyprctl monitors -j | jq -r '.[] | .name'); do
   hyprctl dispatch focusmonitor $m
 
   hyprctl dispatch exec -- \
-    ghostty --title Screensaver -e ~/.config/hypr/scripts/screensaver
+    ghostty --title=Screensaver -e ~/.config/hypr/scripts/screensaver
 done
 
 hyprctl dispatch focusmonitor $focused

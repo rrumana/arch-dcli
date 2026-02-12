@@ -25,8 +25,8 @@ $python
 $character"""
 
 [palettes.colors]
-primary = '#81d5ce'
-secondary = '#b0c9e7'
+primary = '#a1c9fd'
+secondary = '#d7bde4'
 error = '#ffb4ab'
 
 [username]

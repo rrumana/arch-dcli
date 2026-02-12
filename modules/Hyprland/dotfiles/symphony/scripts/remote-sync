@@ -1,0 +1,116 @@
+#!/bin/bash
+# Sync tmux + btop config/theme to remote nodes over SSH.
+set -euo pipefail
+
+HOSTS_FILE="${REMOTE_SYNC_HOSTS_FILE:-$HOME/.config/symphony/remote-sync/hosts}"
+REMOTE_USER="${REMOTE_SYNC_USER:-$USER}"
+CONNECT_TIMEOUT="${REMOTE_SYNC_TIMEOUT:-4}"
+
+LOG_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/symphony"
+LOG_FILE="$LOG_DIR/remote-sync.log"
+LOCK_BASE="${XDG_RUNTIME_DIR:-/run/user/$UID}"
+
+if ! mkdir -p "$LOG_DIR" 2>/dev/null; then
+  LOG_DIR="/tmp/symphony-$UID"
+  LOG_FILE="$LOG_DIR/remote-sync.log"
+  mkdir -p "$LOG_DIR"
+fi
+
+LOCK_FILE="$LOCK_BASE/symphony-remote-sync.lock"
+if ! { exec 9>"$LOCK_FILE"; } 2>/dev/null; then
+  LOCK_FILE="$LOG_DIR/remote-sync.lock"
+  if ! { exec 9>"$LOCK_FILE"; } 2>/dev/null; then
+    LOCK_FILE="/tmp/symphony-remote-sync-$UID.lock"
+    exec 9>"$LOCK_FILE"
+  fi
+fi
+if command -v flock >/dev/null 2>&1; then
+  flock -n 9 || exit 0
+fi
+
+[[ -f "$HOSTS_FILE" ]] || exit 0
+
+SSH_OPTS=(
+  -o BatchMode=yes
+  -o ConnectTimeout="$CONNECT_TIMEOUT"
+  -o ServerAliveInterval=5
+  -o ServerAliveCountMax=1
+  -o StrictHostKeyChecking=accept-new
+)
+
+mapfile -t HOSTS < <(sed -E 's/[[:space:]]*#.*$//; s/^[[:space:]]+//; s/[[:space:]]+$//' "$HOSTS_FILE" | awk 'NF')
+[[ ${#HOSTS[@]} -gt 0 ]] || exit 0
+
+MAPPINGS=(
+  "$HOME/.config/tmux/catppuccin_dynamic_tmux.conf|~/.config/tmux/catppuccin_dynamic_tmux.conf"
+  "$HOME/.config/tmux/catppuccin_dynamic_tmux.conf|~/.config/tmux/plugins/tmux/themes/catppuccin_dynamic_tmux.conf"
+  "$HOME/.config/tmux/tmux.conf|~/.config/tmux/tmux.conf"
+  "$HOME/.config/tmux/statusline.conf|~/.config/tmux/statusline.conf"
+  "$HOME/.config/tmux/utility.conf|~/.config/tmux/utility.conf"
+  "$HOME/.config/btop/themes/current.theme|~/.config/btop/themes/current.theme"
+  "$HOME/.config/btop/btop.conf|~/.config/btop/btop.conf"
+)
+
+timestamp() { date '+%Y-%m-%d %H:%M:%S'; }
+log() { printf '[%s] %s\n' "$(timestamp)" "$*" >>"$LOG_FILE"; }
+
+sync_host() {
+  local host="$1"
+  local remote="$host"
+  local src dst dst_dir
+
+  [[ "$remote" == *"@"* ]] || remote="${REMOTE_USER}@${remote}"
+
+  ssh "${SSH_OPTS[@]}" "$remote" \
+    "mkdir -p ~/.config/tmux ~/.config/tmux/plugins/tmux/themes ~/.config/btop ~/.config/btop/themes" \
+    >/dev/null 2>&1 || {
+      log "$host: connection/setup failed"
+      return 1
+    }
+
+  for pair in "${MAPPINGS[@]}"; do
+    src="${pair%%|*}"
+    dst="${pair##*|}"
+    [[ -f "$src" ]] || continue
+    dst_dir="${dst%/*}"
+    ssh "${SSH_OPTS[@]}" "$remote" "mkdir -p $dst_dir" >/dev/null 2>&1 || true
+    if ! ssh "${SSH_OPTS[@]}" "$remote" "cat > $dst" <"$src" >/dev/null 2>&1; then
+      log "$host: failed to copy ${dst#~/}"
+      return 1
+    fi
+  done
+
+  # Keep catppuccin dynamic theme in TPM path too (if plugin dir exists).
+  if [[ -f "$HOME/.config/tmux/catppuccin_dynamic_tmux.conf" ]]; then
+    ssh "${SSH_OPTS[@]}" "$remote" "mkdir -p ~/.tmux/plugins/tmux/themes" >/dev/null 2>&1 || true
+    ssh "${SSH_OPTS[@]}" "$remote" "cat > ~/.tmux/plugins/tmux/themes/catppuccin_dynamic_tmux.conf" \
+      <"$HOME/.config/tmux/catppuccin_dynamic_tmux.conf" >/dev/null 2>&1 || true
+  fi
+
+  ssh "${SSH_OPTS[@]}" "$remote" "bash -lc '
+    if [[ -f ~/.config/btop/btop.conf ]]; then
+      home_cfg=\"\$HOME/.config\"
+      sed -i -E \"s|/home/[^/]+/.config|\$home_cfg|g\" ~/.config/btop/btop.conf || true
+    fi
+
+    if command -v tmux >/dev/null 2>&1 && tmux ls >/dev/null 2>&1; then
+      if [[ -f ~/.config/tmux/tmux.conf ]]; then
+        tmux source-file ~/.config/tmux/tmux.conf >/dev/null 2>&1 || true
+      elif [[ -f ~/.tmux.conf ]]; then
+        tmux source-file ~/.tmux.conf >/dev/null 2>&1 || true
+      fi
+      while IFS= read -r client; do
+        [[ -n \"\$client\" ]] && tmux refresh-client -S -t \"\$client\" >/dev/null 2>&1 || true
+      done < <(tmux list-clients -F \"#{client_tty}\" 2>/dev/null || true)
+    fi
+
+    pgrep -x btop >/dev/null 2>&1 && pkill -SIGUSR2 btop >/dev/null 2>&1 || true
+  '" >/dev/null 2>&1 || true
+
+  log "$host: sync ok"
+  return 0
+}
+
+for host in "${HOSTS[@]}"; do
+  sync_host "$host" || true
+done

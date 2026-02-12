@@ -1,0 +1,32 @@
+#!/bin/bash
+set -euo pipefail
+
+mode="${1:-toggle}"
+state_file="${XDG_RUNTIME_DIR:-/run/user/$UID}/hypr-osu-mode"
+
+case "$mode" in
+  on)
+    hyprctl dispatch submap osu >/dev/null 2>&1
+    mkdir -p "$(dirname "$state_file")"
+    : >"$state_file"
+    pkill -RTMIN+10 waybar 2>/dev/null || true
+    notify-send "OSU Mode" "On - Hypr keybindings temporarily disabled"
+    ;;
+  off|reset)
+    hyprctl dispatch submap reset >/dev/null 2>&1
+    rm -f "$state_file"
+    pkill -RTMIN+10 waybar 2>/dev/null || true
+    notify-send "OSU Mode" "Off - Hypr keybindings restored"
+    ;;
+  toggle)
+    if [[ -f "$state_file" ]]; then
+      "$0" off
+    else
+      "$0" on
+    fi
+    ;;
+  *)
+    echo "Usage: $0 [on|off|toggle]" >&2
+    exit 1
+    ;;
+esac

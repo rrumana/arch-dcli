@@ -80,7 +80,7 @@ EOF
     sleep 2
 }
 
-browse() { ghostty --title symphony-browse -e "$0" --browse-inner 2>/dev/null; }
+browse() { ghostty --title=symphony-browse -e "$0" --browse-inner 2>/dev/null; }
 
 # ╭───────────────────────────────────────────────────────────────────────╮
 # │ Delete Themes                                                         │

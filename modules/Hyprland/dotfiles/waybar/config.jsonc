@@ -18,6 +18,7 @@
     "disk",
     "custom/screenrecording-indicator",
     "custom/idle-indicator",
+    "custom/osu-indicator",
     "network",
     "bluetooth",
     "backlight",
@@ -55,6 +56,12 @@
     "on-click": "~/.config/hypr/scripts/toggle-idle",
     "exec": "~/.config/waybar/scripts/indicator-idle",
     "signal": 9,
+    "return-type": "json"
+  },
+  "custom/osu-indicator": {
+    "on-click": "~/.config/hypr/scripts/toggle-osu-mode",
+    "exec": "~/.config/waybar/scripts/indicator-osu",
+    "signal": 10,
     "return-type": "json"
   },
   "hyprland/workspaces": {
@@ -110,7 +117,7 @@
     "tooltip": false
   },
   "network": {
-    "interface": "wlan*",
+    "interface": "wlp6s0",
     "format-icons": [
       "󰤯",
       "󰤟",

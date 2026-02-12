@@ -1,9 +1,5 @@
 #!/bin/bash
 
-screensaver_in_focus() {
-  hyprctl activewindow -j | jq -e '.class == "Screensaver"' >/dev/null 2>&1
-}
-
 exit_screensaver() {
   hyprctl keyword cursor:invisible false
   pkill -x tte 2>/dev/null
@@ -29,7 +25,7 @@ while true; do
     --no-eol --no-restore-cursor &
 
   while pgrep -t "${tty#/dev/}" -x tte >/dev/null; do
-    if read -rsn1 -t 1 || ! screensaver_in_focus; then
+    if read -rsn1 -t 1; then
       exit_screensaver
     fi
   done

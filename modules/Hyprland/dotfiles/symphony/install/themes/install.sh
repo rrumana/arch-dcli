@@ -24,7 +24,7 @@ source "$DOTFILES/install/utils.sh"
 if [[ -n "$HYPRLAND_INSTANCE_SIGNATURE" && -z "$SYMPHONY_INSTALLING" && "$SYMPHONY_FULLSCREEN" != "1" ]]; then
     export SYMPHONY_FULLSCREEN=1
     if command -v ghostty &>/dev/null; then
-        ghostty --title Symphony -e "$SCRIPT_DIR/install.sh" "$@" && exit 0
+        ghostty --title=Symphony -e "$SCRIPT_DIR/install.sh" "$@" && exit 0
     fi
 fi
 

@@ -93,6 +93,35 @@ Symphony updates `~/.config/symphony/current` and runs hooks to reload apps. No 
 - Apps: yazi, rmpc, vesktop, obsidian
 - Extras: pywalfox
 
+## Remote Sync (optional)
+
+You can mirror tmux and btop config/theme to remote SSH nodes whenever `symphony switch` or `symphony reload` runs.
+
+1. Create host list:
+   - `mkdir -p ~/.config/symphony/remote-sync`
+   - `cp ~/.config/symphony/remote-sync/hosts.example ~/.config/symphony/remote-sync/hosts`
+2. Add one node per line in `~/.config/symphony/remote-sync/hosts`
+3. Ensure key-based SSH auth works for the same user (or use `user@host` entries)
+
+Synced files:
+- `~/.config/tmux/catppuccin_dynamic_tmux.conf`
+- `~/.config/tmux/plugins/tmux/themes/catppuccin_dynamic_tmux.conf`
+- `~/.config/tmux/tmux.conf`
+- `~/.config/tmux/statusline.conf`
+- `~/.config/tmux/utility.conf`
+- `~/.config/btop/themes/current.theme`
+- `~/.config/btop/btop.conf`
+
+Runtime behavior:
+- Hook: `install/themes/hooks/60-remote-sync.sh`
+- Script: `~/.config/symphony/scripts/remote-sync`
+- Log file: `~/.cache/symphony/remote-sync.log`
+
+Optional env vars:
+- `REMOTE_SYNC_HOSTS_FILE` (default `~/.config/symphony/remote-sync/hosts`)
+- `REMOTE_SYNC_USER` (default current user)
+- `REMOTE_SYNC_TIMEOUT` (default `4` seconds)
+
 ## Customization
 
 ### Themed Rofi

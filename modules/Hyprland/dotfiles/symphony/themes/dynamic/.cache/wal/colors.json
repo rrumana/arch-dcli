@@ -1,27 +1,27 @@
 {
-    "wallpaper": "/home/rcrumana/Wallpapers/others/b-476.jpg",
+    "wallpaper": "/home/rcrumana/Wallpapers/others/a_street_with_buildings_and_trees.png",
     "alpha": "100",
     "special": {
-        "background": "#0e1514",
-        "foreground": "#dde4e2",
-        "cursor": "#81d5ce"
+        "background": "#111418",
+        "foreground": "#e1e2e8",
+        "cursor": "#a1c9fd"
     },
     "colors": {
-        "color0": "#0e1514",
+        "color0": "#111418",
         "color1": "#ffb4ab",
-        "color2": "#81d5ce",
-        "color3": "#b0c9e7",
-        "color4": "#b0ccc9",
-        "color5": "#304962",
-        "color6": "#324b49",
-        "color7": "#dde4e2",
-        "color8": "#1a2120",
+        "color2": "#a1c9fd",
+        "color3": "#d7bde4",
+        "color4": "#bbc7db",
+        "color5": "#533f5f",
+        "color6": "#3c4858",
+        "color7": "#e1e2e8",
+        "color8": "#1d2024",
         "color9": "#ffb4ab",
-        "color10": "#81d5ce",
-        "color11": "#b0c9e7",
-        "color12": "#b0ccc9",
-        "color13": "#304962",
-        "color14": "#324b49",
-        "color15": "#dde4e2"
+        "color10": "#a1c9fd",
+        "color11": "#d7bde4",
+        "color12": "#bbc7db",
+        "color13": "#533f5f",
+        "color14": "#3c4858",
+        "color15": "#e1e2e8"
     }
 }

@@ -81,7 +81,8 @@ window#waybar {
 #custom-logo,
 #mpris,
 #clock,
-#custom-idle-indicator {
+#custom-idle-indicator,
+#custom-osu-indicator {
   padding: 0 6px;
   font-weight: 600;
   opacity: 1;
@@ -103,6 +104,14 @@ window#waybar {
 
 #custom-screenrecording-indicator.active {
   color: #a55555;
+}
+
+#custom-osu-indicator {
+  min-width: 24px;
+}
+
+#custom-osu-indicator.active {
+  color: #e0af68;
 }
 
 #battery.warning {
